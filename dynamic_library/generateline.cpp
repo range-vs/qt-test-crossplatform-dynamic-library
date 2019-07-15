@@ -1,7 +1,10 @@
 #include "generateline.h"
 
-ILine* createLine()
+namespace expoted_function
 {
-    return new Line();
+    ILine* createLine()
+    {
+        return new Line();
+    }
 }
 
