@@ -36,7 +36,7 @@ unix {
     INSTALLS += target
 }
 
-CONFIG += static
+CONFIG += c++17 static
 mac{
     CONFIG += dylib
 }
