@@ -16,7 +16,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    QLibrary lib("dynamic_library");
+    QString libname;
+#ifdef Q_OS_LINUX
+    libname += "./";
+#endif
+    libname += "dynamic_library";
+    QLibrary lib(libname);
     QMessageBox msgBox;
     if(!lib.load())
     {

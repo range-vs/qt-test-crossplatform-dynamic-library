@@ -36,13 +36,12 @@ unix {
     INSTALLS += target
 }
 
-CONFIG += c++17 static
+CONFIG += c++17
 mac{
     CONFIG += dylib
 }
 win32 {
     CONFIG += dll
-    #DEF_FILE = exportdef.def
 }
 unix{
     CONFIG += so
