@@ -18,12 +18,12 @@ void MainWindow::on_pushButton_clicked()
 {
     QLibrary lib("dynamic_library");
     QMessageBox msgBox;
-    /*if(!lib.isLoaded()) // bug? (stack overflow)
+    if(!lib.load())
     {
         msgBox.setText(lib.errorString());
         msgBox.exec();
         return;
-    }*/
+    }
     LibraryType creatorLine = reinterpret_cast<LibraryType>(lib.resolve("createLine"));
     if(creatorLine)
     {
@@ -39,4 +39,9 @@ void MainWindow::on_pushButton_clicked()
     else
         msgBox.setText(lib.errorString());
     msgBox.exec();
+    if(!lib.unload())
+    {
+        msgBox.setText(lib.errorString());
+        msgBox.exec();
+    }
 }
