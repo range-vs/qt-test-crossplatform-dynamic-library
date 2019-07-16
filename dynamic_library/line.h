@@ -9,7 +9,7 @@ class ILine
 {
 public:
     virtual string createLine() = 0;
-    virtual ~ILine() = 0{}
+    virtual ~ILine() = 0;
 };
 
 class Line: public ILine
