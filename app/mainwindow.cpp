@@ -17,8 +17,10 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     QString libname;
-#ifdef Q_OS_LINUX
-    libname += "./";
+#if defined(Q_OS_LINUX)
+    libname = "./";
+#elif defined(Q_OS_MAC)
+    libname = QCoreApplication::applicationDirPath() + "/";
 #endif
     libname += "dynamic_library";
     QLibrary lib(libname);
